@@ -13,11 +13,19 @@ CaMuViD is an advanced multi-view pedestrian detection model developed by resear
 </div>
 
 
-## Performance
+## 🌟 Performance Highlights
 
-- InternImage achieved an impressive Top-1 accuracy of 90.1% on the ImageNet benchmark dataset using only publicly available data for image classification. Apart from two undisclosed models trained with additional datasets by Google and Microsoft, InternImage is the only open-source model that achieves a Top-1 accuracy of over 90.0%, and it is also the largest model in scale worldwide.
-- InternImage outperformed all other models worldwide on the COCO object detection benchmark dataset with a remarkable mAP of 65.5, making it the only model that surpasses 65 mAP in the world.
-- InternImage also demonstrated world's best performance on 16 other important visual benchmark datasets, covering a wide range of tasks such as classification, detection, and segmentation, making it the top-performing model across multiple domains.
+- **State-of-the-Art Multi-View Detection**  
+  On **Wildtrack** we achieve **95.0 % MODA** (+0.9 pp over prior best) and **80.9 % MODP**, with **96.3 % precision**, **98.6 % recall**, and **97.4 % F₁**.  
+  On **MultiviewX** we reach **96.5 % MODA**, **89.3 % MODP**, **97.9 % precision**, **98.6 % recall**, and **98.3 % F₁**—all best-in-class.  
+
+- **Exceptional Cross-Dataset Generalization**  
+  Trained on MultiviewX and tested on Wildtrack, our model still delivers **86.4 % MODA**, **60.7 % MODP**, **89.3 % precision**, **98.1 % recall**, and **93.5 % F₁**, outperforming prior methods by > 9 pp in F₁.  
+
+- **Ablation: The Power of Multiple Views**  
+  Removing views drops performance dramatically—single-camera yields only **60.1 % MODA** and **65.0 % MODP**.  
+  By integrating **five cameras**, we recover to **95.6 % MODA**, **80.2 % MODP**, **96.6 % precision**, **99.3 % recall**, and **98.0 % F₁**, underscoring the **indispensable value of comprehensive multi-view coverage**.
+
 
 **Multi-View Detection Results**
 
