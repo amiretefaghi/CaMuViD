@@ -92,15 +92,15 @@ Our detection code is developed on top of [MMDetection v2.28.1](https://github.c
 - Clone this repository:
 
 ```bash
-git clone https://github.com/OpenGVLab/InternImage.git
+git clone https://github.com/OpenGVLab/CaMuViD.git
 cd InternImage
 ```
 
 - Create a conda virtual environment and activate it:
 
 ```bash
-conda create -n internimage python=3.9
-conda activate internimage
+conda create -n camuvid python=3.9
+conda activate camuvid
 ```
 
 - Install `CUDA>=10.2` with `cudnn>=7` following
