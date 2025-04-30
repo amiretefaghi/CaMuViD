@@ -92,7 +92,7 @@ Our detection code is developed on top of [MMDetection v2.28.1](https://github.c
 - Clone this repository:
 
 ```bash
-git clone https://github.com/OpenGVLab/CaMuViD.git
+git clone https://github.com/amiretefaghi/CaMuViD.git
 cd InternImage
 ```
 
