@@ -93,7 +93,7 @@ Our detection code is developed on top of [MMDetection v2.28.1](https://github.c
 
 ```bash
 git clone https://github.com/amiretefaghi/CaMuViD.git
-cd InternImage
+cd CaMuViD
 ```
 
 - Create a conda virtual environment and activate it:
