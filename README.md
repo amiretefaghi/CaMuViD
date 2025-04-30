@@ -76,6 +76,113 @@ CaMuViD is an advanced multi-view pedestrian detection model developed by resear
 | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  | 95.0  | 80.9 |   96.3    | 98.6   | 97.4 |
 
 
+Our detection code is developed on top of [MMDetection v2.28.1](https://github.com/open-mmlab/mmdetection/tree/v2.28.1).
+
+<!-- TOC -->
+
+- [Installation](#installation)
+- [Data Preparation](#data-preparation)
+- [Evaluation](#evaluation)
+- [Training](#training)
+
+<!-- TOC -->
+
+## Installation
+
+- Clone this repository:
+
+```bash
+git clone https://github.com/OpenGVLab/InternImage.git
+cd InternImage
+```
+
+- Create a conda virtual environment and activate it:
+
+```bash
+conda create -n internimage python=3.9
+conda activate internimage
+```
+
+- Install `CUDA>=10.2` with `cudnn>=7` following
+  the [official installation instructions](https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html)
+- Install `PyTorch>=1.10.0` and `torchvision>=0.9.0` with `CUDA>=10.2`:
+
+For examples, to install `torch==1.11` with `CUDA==11.3`:
+
+```bash
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113  -f https://download.pytorch.org/whl/torch_stable.html
+```
+
+- Install other requirements:
+
+  note: conda opencv will break torchvision as not to support GPU, so we need to install opencv using pip.
+
+```bash
+conda install -c conda-forge termcolor yacs pyyaml scipy pip -y
+pip install opencv-python
+```
+
+- Install `timm`, `mmcv-full` and \`mmsegmentation':
+
+```bash
+pip install -U openmim
+mim install mmcv-full==1.5.0
+mim install mmsegmentation==0.27.0
+pip install timm==0.6.11 mmdet==2.28.1
+```
+
+- Install other requirements:
+
+```bash
+pip install opencv-python termcolor yacs pyyaml scipy
+# Please use a version of numpy lower than 2.0
+pip install numpy==1.26.4
+pip install pydantic==1.10.13
+pip install yapf==0.40.1
+```
+
+- Compile CUDA operators
+
+Before compiling, please use the `nvcc -V` command to check whether your `nvcc` version matches the CUDA version of PyTorch.
+
+```bash
+cd ./ops_dcnv3
+sh ./make.sh
+# unit test (should see all checking is True)
+python test.py
+```
+
+- You can also install the operator using precompiled `.whl` files
+  [DCNv3-1.0-whl](https://github.com/OpenGVLab/InternImage/releases/tag/whl_files)
+
+## Data Preparation
+
+Prepare datasets according to the guidelines in [MMDetection v2.28.1](https://github.com/open-mmlab/mmdetection/blob/master/docs/en/1_exist_data_model.md).
+
+
+## Evaluation
+
+To evaluate our model on desired dataset, set mode to test in the Config.py file, run:
+
+```
+python camuvid.py
+```
+
+## Training
+
+To finetune an `InternImage` backbone on desired dataset, run:
+
+```
+python train.py ./configs/{dataset_name}/mask_rcnn_internimage_b_fpn_3x_coco.py  --load-from ./models/coco_pretrained/mask_rcnn_internimage_b_fpn_3x_coco.pth
+```
+and then train the detection section, you should modify the Config.py file. You should set the mode to train and write the address of train and test annotations directory, then run:
+
+For example, to train `InternImage-T` with 8 GPU on 1 node, run:
+
+```
+python camuvid.py
+```
+
 ## Citation
 
 If this work is helpful for your research, please consider citing the following BibTeX entry.
