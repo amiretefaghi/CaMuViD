@@ -1,8 +1,6 @@
 # CaMuViD: Calibration-Free Multi-View Detection
 
-The official implementation of
-
-[CaMuViD: Calibration-Free Multi-View Detection](https://amiretefaghi.github.io/Camuvid.html).
+The official implementation of [CaMuViD: Calibration-Free Multi-View Detection](https://amiretefaghi.github.io/Camuvid.html).
 
 ## Introduction
 
