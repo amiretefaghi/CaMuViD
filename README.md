@@ -186,10 +186,12 @@ python camuvid.py
 If this work is helpful for your research, please consider citing the following BibTeX entry.
 
 ```bibtex
-@inproceedings{etefaghi2025camuvid,
-  title={CaMuViD: Calibration-Free Multi-View Detection},
-  author={Amir Etefaghi Daryani, M. Usman Maqbool Bhutta, Byron Hernandez, Henry Medeiros},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2025}
-}
+@InProceedings{etefaghi2025camuvid,
+                            author    = {Daryani, Amir Etefaghi and Bhutta, M. Usman Maqbool and Hernandez, Byron and Medeiros, Henry},
+                            title     = {CaMuViD: Calibration-Free Multi-View Detection},
+                            booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+                            month     = {June},
+                            year      = {2025},
+                            pages     = {1220-1229}
+                        }
 ```
