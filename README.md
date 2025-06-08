@@ -175,8 +175,6 @@ python train.py ./configs/{dataset_name}/mask_rcnn_internimage_b_fpn_3x_coco.py 
 ```
 and then train the detection section, you should modify the Config.py file. You should set the mode to train and write the address of train and test annotations directory, then run:
 
-For example, to train `InternImage-T` with 8 GPU on 1 node, run:
-
 ```
 python camuvid.py
 ```
