@@ -167,6 +167,8 @@ To evaluate our model on desired dataset, set mode to test in the Config.py file
 python camuvid.py
 ```
 
+The model weights for [MultiviewX](https://huggingface.co/amiretefaghi/camuvid/resolve/main/multiviewx.pth?download=true) and [Wildtrack](https://huggingface.co/amiretefaghi/camuvid/resolve/main/wildtrack.pth?download=true) are available.
+
 ## Training
 
 To finetune an `InternImage` backbone on desired dataset, run:

@@ -36,8 +36,7 @@ class Config_d:
     out_dir = f'checkpoint/fine_tune_{dataset_name}_chunk_b/'
 
     pretrained_backbone = f'checkpoint/fine_tune_{dataset_name}_chunk_b_3x/best_bbox_mAP_epoch_10.pth'
-    pretrained_network = f'./models/{experiment_name}/Joint_epoch_20.pth'
-    # pretrained_network = f'./models/coco_pretrained/dino_4scale_internimage_l_1x_coco_0.1x_backbone_lr.pth'
+    pretrained_network = f'./models/{experiment_name}/wildtrack.pth'
 
     intrinsic_camera_matrix_filenames = [
         'intr_CVLab1.xml', 'intr_CVLab2.xml', 'intr_CVLab3.xml',
