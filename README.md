@@ -175,8 +175,6 @@ python train.py ./configs/{dataset_name}/mask_rcnn_internimage_b_fpn_3x_coco.py 
 ```
 and then train the detection section, you should modify the Config.py file. You should set the mode to train and write the address of train and test annotations directory, then run:
 
-For example, to train `InternImage-T` with 8 GPU on 1 node, run:
-
 ```
 python camuvid.py
 ```
@@ -186,10 +184,12 @@ python camuvid.py
 If this work is helpful for your research, please consider citing the following BibTeX entry.
 
 ```bibtex
-@inproceedings{etefaghi2025camuvid,
-  title={CaMuViD: Calibration-Free Multi-View Detection},
-  author={Amir Etefaghi Daryani, M. Usman Maqbool Bhutta, Byron Hernandez, Henry Medeiros},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2025}
-}
+@InProceedings{etefaghi2025camuvid,
+                            author    = {Daryani, Amir Etefaghi and Bhutta, M. Usman Maqbool and Hernandez, Byron and Medeiros, Henry},
+                            title     = {CaMuViD: Calibration-Free Multi-View Detection},
+                            booktitle = {Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR)},
+                            month     = {June},
+                            year      = {2025},
+                            pages     = {1220-1229}
+                        }
 ```
