@@ -157,6 +157,7 @@ python test.py
 
 Prepare datasets according to the guidelines in [MMDetection v2.28.1](https://github.com/open-mmlab/mmdetection/blob/master/docs/en/1_exist_data_model.md).
 
+For your convenient, we provided the COCO format annotations of MultiviewX and Wildtrack in the ./data folder.
 
 ## Evaluation
 
