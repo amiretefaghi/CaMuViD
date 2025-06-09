@@ -275,23 +275,23 @@ def test_jointDetectmodel(model, dataloader, dataset, dataset_sub, device, resiz
 
                     img_metas = [dict(img_shape=resized_size,ori_shape= resized_size,pad_shape=(images[0].shape[2],images[0].shape[3]),batch_input_shape=(images[0].shape[2],images[0].shape[3]),scale_factor=1.0)] * batch_size
 
-                    # Initialize empty lists to hold processed targets and labels
-                    imgcoord2worldgrid_matrices = get_imgcoord2worldgrid_matrices(dataset_sub.intrinsic_matrices,
-                                                                                dataset_sub.extrinsic_matrices,
-                                                                                dataset_sub.worldgrid2worldcoord_mat)
-                    upsample_shape = list(map(lambda x: int(x / 5), dataset_sub.img_shape))
-                    img_reduce = np.array(dataset_sub.img_shape) / np.array(upsample_shape)
-                    img_zoom_mat = np.diag(np.append(img_reduce, [1]))
-                    # map
-                    map_zoom_mat = np.diag(np.append(np.ones([2]) / 5, [1]))
-                    # projection matrices: img feat -> map feat
-                    proj_mats = [torch.from_numpy(map_zoom_mat @ imgcoord2worldgrid_matrices[cam] @ img_zoom_mat).float().to(device)
-                                    for cam in range(dataset_sub.num_cam)]   
+                    # # Initialize empty lists to hold processed targets and labels
+                    # imgcoord2worldgrid_matrices = get_imgcoord2worldgrid_matrices(dataset_sub.intrinsic_matrices,
+                    #                                                             dataset_sub.extrinsic_matrices,
+                    #                                                             dataset_sub.worldgrid2worldcoord_mat)
+                    # upsample_shape = list(map(lambda x: int(x / 5), dataset_sub.img_shape))
+                    # img_reduce = np.array(dataset_sub.img_shape) / np.array(upsample_shape)
+                    # img_zoom_mat = np.diag(np.append(img_reduce, [1]))
+                    # # map
+                    # map_zoom_mat = np.diag(np.append(np.ones([2]) / 5, [1]))
+                    # # projection matrices: img feat -> map feat
+                    # proj_mats = [torch.from_numpy(map_zoom_mat @ imgcoord2worldgrid_matrices[cam] @ img_zoom_mat).float().to(device)
+                    #                 for cam in range(dataset_sub.num_cam)]   
                                                          
                     bboxes, labels, masks = process_targets(bboxes, labels, masks, scale_factor, device,evaluation=True)
                     start = time.time()
                     if not single_head:
-                        results = model.simple_test(imgs=images, img_metas = img_metas, rescale=False, proj_mats=proj_mats)
+                        results = model.simple_test(imgs=images, img_metas = img_metas, rescale=False)
                     else: 
                         results = model.simple_test(imgs=images, img_metas = img_metas, rescale=False)
                     end = time.time()
@@ -647,7 +647,7 @@ if __name__ == "__main__":
                                             train=False, view_pairs=combinations_result, blank_views=cfg.blank_views)
         test_dataloader = DataLoader(dataset=test_dataset, batch_size=cfg.batch_size)
         # Test the model
-        fov_filtering = FOV_Filtering(dataset)
+        fov_filtering = FOV_Filtering(dataset,dataset_name=cfg.dataset_name)
         test_jointDetectmodel(custom_model, test_dataloader, test_dataset, dataset, device, 
                             cfg.test_resized_size, batch_size=cfg.batch_size, single_head=cfg.single_head, 
                             fov_filtering=fov_filtering, pairs_combs = comb_dict_result, experience_name=cfg.experiment_name,blank_views=cfg.blank_views)

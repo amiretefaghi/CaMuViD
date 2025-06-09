@@ -1206,18 +1206,19 @@ def convert_img_meta(img_meta):
 
 class FOV_Filtering:
 
-    def __init__(self,dataset):
+    def __init__(self,dataset, dataset_name):
         self.dataset = dataset
         self.xi = np.arange(0, self.dataset.worldgrid_shape[0], 40)
         self.yi = np.arange(0, self.dataset.worldgrid_shape[1], 40)
         self.world_grid = np.stack(np.meshgrid(self.xi, self.yi, indexing='ij')).reshape([2, -1])
+        self.dataset_name = dataset_name
 
     def is_point_on_grid(self, point):
         x, y = point
-        return 40 < x[0] and x[0] < (self.dataset.worldgrid_shape[0])  and 95 < y[0] and y[0] < (self.dataset.worldgrid_shape[1] - 150) # Wildtrack
-        # return 0 < x[0] and x[0] < (self.dataset.worldgrid_shape[1])  and 0 < y[0] and y[0] < (self.dataset.worldgrid_shape[0]) #multiviewx
-
-
+        if dataset_name == 'MultiviewX':
+            return 0 < x[0] and x[0] < (self.dataset.worldgrid_shape[1])  and 0 < y[0] and y[0] < (self.dataset.worldgrid_shape[0]) #multiviewx
+        elif dataset_name == 'Wildtrack':
+            return 40 < x[0] and x[0] < (self.dataset.worldgrid_shape[0])  and 95 < y[0] and y[0] < (self.dataset.worldgrid_shape[1] - 150) # Wildtrack
     def convert_imgcoord_to_worldgrid(self, bbox,camera_id):
 
         x_min, y_min, x_max, y_max = bbox
