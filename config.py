@@ -9,8 +9,8 @@ class Config_d:
     head = 'cascade' # 'dino' or 'rcnn' or 'cascade'
 
     single_head = False
-    num_head = 3
-    num_views = 3
+    num_head = 7 # 7 for Wildtrack, 6 for MultiviewX
+    num_views = 7
     gpu_num = 2
     resume = False
     start_epoch = 0
