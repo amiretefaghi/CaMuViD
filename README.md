@@ -161,7 +161,7 @@ For your convenient, we provided the COCO format annotations of MultiviewX and W
 
 ## Evaluation
 
-To evaluate our model on desired dataset, set mode to test in the Config.py file, run:
+To evaluate our model on desired dataset, set mode to test in the `Config.py` file, set the `num_head` and `num_views` to 7 for Wildtrack and 6 for MultiViewX, run:
 
 ```
 python camuvid.py
