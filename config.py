@@ -35,7 +35,7 @@ class Config_d:
     # config_file = f'configs/{dataset_name}/cascade_jointDetection.py'
     out_dir = f'checkpoint/fine_tune_{dataset_name}_chunk_b/'
 
-    pretrained_backbone = f'checkpoint/fine_tune_{dataset_name}_chunk_b_3x/best_bbox_mAP_epoch_10.pth'
+    pretrained_backbone = f'checkpoint/fine_tune_{dataset_name}_chunk_t_3x/best_bbox_mAP_epoch_10.pth'
     pretrained_network = f'./models/{experiment_name}/wildtrack.pth'
 
     intrinsic_camera_matrix_filenames = [
