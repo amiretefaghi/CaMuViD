@@ -174,7 +174,7 @@ The model weights for [MultiviewX](https://huggingface.co/amiretefaghi/camuvid/r
 To finetune an `InternImage` backbone on desired dataset, run:
 
 ```
-python train.py ./configs/{dataset_name}/mask_rcnn_internimage_b_fpn_3x_coco.py  --load-from ./models/coco_pretrained/mask_rcnn_internimage_b_fpn_3x_coco.pth
+python train.py ./configs/{dataset_name}/mask_rcnn_internimage_t_fpn_3x_coco.py  --load-from ./models/coco_pretrained/mask_rcnn_internimage_t_fpn_3x_coco.pth
 ```
 and then train the detection section, you should modify the Config.py file. You should set the mode to train and write the address of train and test annotations directory, then run:
 
